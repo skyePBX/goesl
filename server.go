@@ -26,7 +26,7 @@ type OutboundServer struct {
 
 // Start - Will start new outbound server
 func (s *OutboundServer) Start() error {
-	Notice("Starting Freeswitch Outbound Server @ (address: %s) ...", s.Addr)
+	Info("Starting Freeswitch Outbound Server @ (address: %s) ...", s.Addr)
 
 	var err error
 
@@ -57,7 +57,7 @@ func (s *OutboundServer) Start() error {
 				m:    make(chan *Message),
 			}
 
-			Notice("Got new connection from: %s", conn.OriginatorAddr())
+			Info("Got new connection from: %s", conn.OriginatorAddr())
 
 			go conn.Handle()
 
